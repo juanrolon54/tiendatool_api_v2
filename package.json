@@ -1,0 +1,23 @@
+{
+  "name": "tiendatool_api",
+  "version": "1.0.50",
+  "scripts": {
+    "dev": "concurrently \"bun run --watch src/index.tsx\" \"bun run tw:dev\"",
+    "tw": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css",
+    "tw:dev": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css --watch"
+  },
+  "dependencies": {
+    "@elysiajs/html": "^0.7.0",
+    "@woocommerce/woocommerce-rest-api": "^1.0.1",
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "latest",
+    "concurrently": "^8.2.0",
+    "@types/woocommerce__woocommerce-rest-api": "^1.0.2",
+    "bun-types": "latest",
+    "typed-html": "^3.0.1",
+    "tailwindcss": "^3.3.3"
+  },
+  "module": "src/index.tsx"
+}
