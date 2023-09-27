@@ -2,6 +2,7 @@ import { Elysia } from "elysia";
 import { html as html } from '@elysiajs/html'
 import * as elements from 'typed-html'
 import WooCommerce from "@woocommerce/woocommerce-rest-api";
+import { logger } from '@bogeychan/elysia-logger';
 
 const woocommerce = new WooCommerce({
   url: Bun.env.WOOCOMMERCE_URL ?? "",
@@ -28,6 +29,7 @@ function Page({ children }: elements.Children) {
 
 
 const app = new Elysia()
+.use(logger({level: 'debug', enabled: true, }))
   .use(html())
   .get("/", () => {
 
@@ -107,10 +109,15 @@ const app = new Elysia()
 
     set.redirect = "/productos"
   })
+
   .group("/api", app =>
     app.get('/', () => {
       return "Esta es la api!"
+    }).get('/webhook', ({ set, body }) => {
+      console.log(body)
+      set.status = 200
     }))
+  
   .get("/styles.css", () => Bun.file("./tailwind-gen/styles.css"))
   .listen(Bun.env.PORT ?? 5173);
 

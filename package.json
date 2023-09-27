@@ -7,7 +7,9 @@
     "tw:dev": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css --watch"
   },
   "dependencies": {
+    "@bogeychan/elysia-logger": "^0.0.10",
     "@elysiajs/html": "^0.7.0",
+    "@grotto/logysia": "^0.0.2",
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "elysia": "latest"
   },
