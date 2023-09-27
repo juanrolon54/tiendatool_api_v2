@@ -107,6 +107,10 @@ const app = new Elysia()
 
     set.redirect = "/productos"
   })
+  .group("/api", app =>
+    app.get('/', () => {
+      return "Esta es la api!"
+    }))
   .get("/styles.css", () => Bun.file("./tailwind-gen/styles.css"))
   .listen(Bun.env.PORT ?? 5173);
 
