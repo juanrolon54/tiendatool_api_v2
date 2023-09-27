@@ -27,7 +27,6 @@ function Page({ children }: elements.Children) {
 }
 
 
-
 const app = new Elysia()
 .use(logger({level: 'debug', enabled: true, }))
   .use(html())
