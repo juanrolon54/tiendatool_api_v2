@@ -2,6 +2,7 @@
   "name": "tiendatool_api",
   "version": "1.0.50",
   "scripts": {
+    "start": "bun src/index.tsx",
     "dev": "concurrently \"bun run --watch src/index.tsx\" \"bun run tw:dev\"",
     "tw": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css",
     "tw:dev": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css --watch"
